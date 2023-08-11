@@ -282,9 +282,20 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
+.link-style {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            border: 2px solid transparent; /* Bordas transparentes por padrão */
+            padding: 5px 10px;
+            transition: border 0.3s ease-in-out; /* Transição suave da borda */
+        }
+
+        .link-style:hover {
+            text-decoration: underline;
+            border: 2px solid #007bff; /* Adiciona a borda ao passar o mouse */
+        }
 
     </style>
     <script>
@@ -326,7 +337,7 @@ a:hover {
         </div>
         <button onclick="calcularArea()">Calcular Área</button>
         <p id="resultado"></p>
-        <a href="aula26web.html">Calcular Juros Compostos</a>
+        <a href="aula26web.html" class="link-style">Calcular Juros Compostos</a>
     </div>
 </body>
 </html>

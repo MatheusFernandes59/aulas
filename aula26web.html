@@ -277,6 +277,20 @@ p {
     font-weight: bold;
     color: inherit;
 }
+.link-style {
+            display: block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            border: 2px solid transparent; /* Bordas transparentes por padrão */
+            padding: 5px 10px;
+            transition: border 0.3s ease-in-out; /* Transição suave da borda */
+        }
+
+        .link-style:hover {
+            text-decoration: underline;
+            border: 2px solid #007bff; /* Adiciona a borda ao passar o mouse */
+        }
            </style>
     <script>
         function calcularJuros() {
@@ -323,7 +337,7 @@ p {
         </div>
         <button onclick="calcularJuros()">Calcular Montante</button>
         <p id="resultado"></p>
-        <a href="aula26web.2.html">Calcular Área do Retângulo</a>
+        <a href="aula26web.2.html" class="link-style">Calcular Área do Retângulo</a>
     </div>
 </div>
 </body>
