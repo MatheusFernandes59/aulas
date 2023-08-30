@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interface do Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    color: #3498db;
+    border-left: 1px solid #e0e0e0; /* Adiciona o risco separador */
+    padding-left: 10px; /* Espaçamento do risco */
+  }
+  .header {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .header img {
+    max-width: 100%;
+    height: auto;
+  }
+  .container h3 {
+    font-size: 24px; /* Tamanho aumentado */
+    font-weight: bold; /* Mais encorpado */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0; /* Linha separadora */
+    padding-bottom: 5px; /* Espaçamento abaixo da linha */
+  }
+  .category-wrapper {
+    display: flex;
+    flex-direction: column; /* Alterado para empilhar verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    width: 100%;
+  }
+  .category {
+    text-align: center;
+    margin: 30px;
+    background-color:  #3498db;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    width: 65%; /* Ocupa toda a largura */
+    overflow: hidden;
+    border: 1px solid #e0e0e0; /* Adiciona a borda cinza claro */
+  }
+  .category-title {
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .category-content {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .category-content.expanded {
+  animation: expandAnimation 2.5s ease-in-out forwards;
+}
+
+@keyframes expandAnimation {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 1000px; /* Defina um valor maior do que a altura máxima esperada */
+  }
+}
+
+  .category.active .category-content {
+    max-height: 500px; /* Ou o valor necessário */
+    padding: 10px;
+  }
+  .icon {
+    font-size: 36px;
+    color: #3498db;
+  }
+  .category-subtitle {
+    font-size: 14px;
+    color: #ffffff;
+    background-color:  #3498db;
+    padding: 7px 12px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="logo.png" alt="Logo do Site">
+    </div>
+    <h3>PORTAL DO EMPREENDEDOR</h3>
+    <div class="category-wrapper">
+      <div class="category">
+        <div class="category-title">
+          <div class="category-subtitle">ATENDIMENTO WHATSAPP</div>
+        </div>
+        <div class="category-content">
+          <a href="https://api.whatsapp.com/send?phone=555121830243">ATENDIMENTO WHATSAPP</a> 
+        </div>
+      </div>
+      <!-- Aqui você pode duplicar o código do dropdown e ajustar os links e textos -->
+      <div class="category">
+        <div class="category-title">
+          <div class="category-subtitle">PESQUISA DE SATISFAÇÃO</div>
+        </div>
+        <div class="category-content">
+          <a href="GoogleDocs">PESQUISA DE SATISFAÇÃO</a>
+        </div>
+      </div>
+      <div class="category">
+        <div class="category-title">
+          <div class="category-subtitle">SERVIÇOS PARA MEI</div>
+        </div>
+        <div class="category-content">
+          <a href="link_para_opcao_4">GUIA DO MEI</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+          <a href="link_para_opcao_4">Opção 4</a>
+        </div>
+      </div>
+      <div class="category">
+        <div class="category-title">
+          <div class="category-subtitle">TUDO FÁCIL EMPRESAS RS</div>
+        </div>
+        <div class="category-content">
+          <a href="https://tudofacilempresas.rs.gov.br/quero-abrir-empresa">TUDO FÁCIL EMPRESAS RS</a>
+
+        </div>  
+    </div>
+  </div>
+
+  <script>
+    const categories = document.querySelectorAll('.category');
+  
+    categories.forEach(category => {
+      const title = category.querySelector('.category-title');
+      const content = category.querySelector('.category-content');
+  
+      title.addEventListener('click', () => {
+        categories.forEach(c => {
+          if (c !== category) {
+            c.classList.remove('active');
+            c.querySelector('.category-content').classList.remove('expanded');
+          }
+        });
+  
+        category.classList.toggle('active');
+        if (category.classList.contains('active')) {
+          content.classList.add('expanded');
+        } else {
+          content.classList.remove('expanded');
+        }
+      });
+    });
+  </script>
+  
+  
+</body>
+</html>
